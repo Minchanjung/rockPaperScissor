@@ -7,8 +7,6 @@ function computerPlay() {
     let random = Math.floor(Math.random() * rps.length);
     return rps[random];
 }
-//let test = computerPlay()
-//console.log(test)
 
 //function to play a single round of rps
 function playRound(playerSelection, computerSelection) {
@@ -50,15 +48,13 @@ function playRound(playerSelection, computerSelection) {
         
     }
 }
-console.log(score)
+
 function game() {
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 0; i < 5; i++) {
         let playerSelection  = prompt("Play Rock, Paper, or Scissor:");
-        console.log(playerSelection);
         const computerSelection = computerPlay();
-        console.log(computerSelection);
         console.log(playRound(playerSelection, computerSelection));
         if (score === true) {
             playerScore += 1;
@@ -69,7 +65,8 @@ function game() {
         } else if (score === 0) {
             console.log("This round is a tie");
         }
-        console.log(score);
+        console.log("Player score is: " + playerScore)
+        console.log("Computer score is: " + computerScore)
     }
     if (playerScore > computerScore) {
         console.log("Player wins!");
@@ -78,7 +75,4 @@ function game() {
     }
 }
 
-//let playerSelection = prompt("play Rock, Paper, or Scissor:")
-
-console.log(game())
-console.log(score)
+game()
