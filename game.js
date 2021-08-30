@@ -8,6 +8,9 @@ function computerPlay() {
     return rps[random];
 }
 
+const computerSelection = computerPlay();
+console.log(computerSelection)
+
 //function to play a single round of rps
 function playRound(playerSelection, computerSelection) {
     let playerSelect = playerSelection.toLowerCase();
@@ -52,27 +55,19 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let playerSelection  = prompt("Play Rock, Paper, or Scissor:");
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
-        if (score === true) {
-            playerScore += 1;
-            console.log("Player wins this round!");
-        } else if  (score === false) {
-            computerScore += 1;
-            console.log("Computer wins this round!");
-        } else if (score === 0) {
-            console.log("This round is a tie");
-        }
-        console.log("Player score is: " + playerScore)
-        console.log("Computer score is: " + computerScore)
-    }
-    if (playerScore > computerScore) {
-        console.log("Player wins!");
-    } else {
-        console.log("Computer wins!")
-    }
+    const rockBtn = document.querySelector('button');
+    const paperBtn = document.querySelector('.paper');
+    const scissorBtn = document.querySelector('.scissor');
+
+    rockBtn.addEventListener('click', function() {
+        console.log(playRound('rock', computerSelection));
+    });
+    paperBtn.addEventListener('click', function() {
+        console.log(playRound('paper', computerSelection));
+    });
+    scissorBtn.addEventListener('click', function() {
+        console.log(playRound('scissor', computerSelection));
+    });
 }
 
 game()

@@ -1,0 +1,7 @@
+body {
+    background-color: antiquewhite;
+}
+#buttonsContainer {
+    display: flex;
+    align-items: center;
+}
