@@ -1,7 +1,27 @@
 body {
     background-color: antiquewhite;
 }
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
 #buttonsContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+.rock {
+    border-color: black;
+}
+
+.paper {
+    border-color: black;
+}
+
+.scissor {
+    border-color: black;
 }
