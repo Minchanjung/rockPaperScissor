@@ -1,9 +1,42 @@
-//lets the game know who won each round
-
+let playerSelection;
 const computerSelection = computerPlay();
 let playerScore = 0;
+//console.log(playerScore);
 let computerScore = 0;
+//console.log(computerScore);
 
+const output = document.querySelector('#output');
+output.textContext = 'Choose Rock, Paper, or Scissor';
+
+const player = document.querySelector('#playerScore');
+player.textContent = `Player Score: ${playerScore}`
+
+const computer = document.querySelector('#computerScore');
+computer.textContent = `Computer Score: ${computerScore}`
+
+const rockBtn = document.querySelector('button');
+const paperBtn = document.querySelector('.paper');
+const scissorBtn = document.querySelector('.scissor');
+
+
+rockBtn.addEventListener('click', function() {
+    playerSelection = "rock";
+    playGame()
+    player.textContent = `Player Score: ${playerScore}`
+    computer.textContent = `Computer Score: ${computerScore}`
+});
+paperBtn.addEventListener('click', function() {
+    playerSelection = "paper";
+    playGame()
+    player.textContent = `Player Score: ${playerScore}`
+    computer.textContent = `Computer Score: ${computerScore}`
+});
+scissorBtn.addEventListener('click', function() {
+    playerSelection = "scissor";
+    playGame()
+    player.textContent = `Player Score: ${playerScore}`
+    computer.textContent = `Computer Score: ${computerScore}`
+});
 
 function computerPlay() {
     let rps = ["Rock", "Paper", "Scissor"];
@@ -52,46 +85,19 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    const output = document.querySelector('#output');
-    output.textContext = 'Choose Rock, Paper, or Scissor';
-
-    const player = document.querySelector('#playerScore');
-    player.textContent = `Player Score: ${playerScore}`
-
-    const computer = document.querySelector('#computerScore');
-    computer.textContent = `Computer Score: ${computerScore}`
-
-    const rockBtn = document.querySelector('button');
-    const paperBtn = document.querySelector('.paper');
-    const scissorBtn = document.querySelector('.scissor');
-
-
-    rockBtn.addEventListener('click', function() {
-        output.textContent = playRound('rock', computerSelection);
-        player.textContent = `Player Score: ${playerScore}`
-        computer.textContent = `Computer Score: ${computerScore}`
-    });
-    paperBtn.addEventListener('click', function() {
-        output.textContent = playRound('paper', computerSelection);
-        player.textContent = `Player Score: ${playerScore}`
-        computer.textContent = `Computer Score: ${computerScore}`
-    });
-    scissorBtn.addEventListener('click', function() {
-        output.textContent = playRound('scissor', computerSelection);
-        player.textContent = `Player Score: ${playerScore}`
-        computer.textContent = `Computer Score: ${computerScore}`
-    });
+function playGame() {
+    output.textContent = playRound(playerSelection, computerSelection);
+    console.log(playerScore);
+    console.log(computerScore);
 
     if (playerScore === 5) {
-        output.textContent = "Congratulations You Have Beaten the Computer!";
+        output.textContent = "Congratulations You Have Beaten the Computer! Click to play again.";
         playerScore = 0;
         computerScore = 0;
+        
     } else if (computerScore === 5) {
-        output.textContent = "You Lose, The Computer Has Beaten You!";
+        output.textContent = "You Lose, The Computer Has Beaten You! Click to play again.";
         playerScore = 0;
         computerScore = 0;
     }
 }
-
-game()
