@@ -1,5 +1,5 @@
 let playerSelection;
-const computerSelection = computerPlay();
+let computerSelection
 let playerScore = 0;
 //console.log(playerScore);
 let computerScore = 0;
@@ -21,19 +21,22 @@ const scissorBtn = document.querySelector('.scissor');
 
 rockBtn.addEventListener('click', function() {
     playerSelection = "rock";
-    playGame()
+    computerSelection = computerPlay();
+    playGame();
     player.textContent = `Player Score: ${playerScore}`
     computer.textContent = `Computer Score: ${computerScore}`
 });
 paperBtn.addEventListener('click', function() {
     playerSelection = "paper";
-    playGame()
+    computerSelection = computerPlay();
+    playGame();
     player.textContent = `Player Score: ${playerScore}`
     computer.textContent = `Computer Score: ${computerScore}`
 });
 scissorBtn.addEventListener('click', function() {
     playerSelection = "scissor";
-    playGame()
+    computerSelection = computerPlay();
+    playGame();
     player.textContent = `Player Score: ${playerScore}`
     computer.textContent = `Computer Score: ${computerScore}`
 });
@@ -86,6 +89,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function playGame() {
+    console.log(computerSelection);
     output.textContent = playRound(playerSelection, computerSelection);
     console.log(playerScore);
     console.log(computerScore);
