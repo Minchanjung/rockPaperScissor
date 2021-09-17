@@ -2,6 +2,35 @@ body {
     background-color: antiquewhite;
 }
 
+#header {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    border-color: black;
+    text-align: center;
+}
+
+#textLine {
+    display: flex;
+    justify-content: center;
+}
+
+#playerScore {
+float: left;
+}
+
+#computerScore {
+float: right;
+margin-left: 100px
+}
+
 h1 {
     display: flex;
     justify-content: center;
@@ -16,12 +45,19 @@ h1 {
 
 .rock {
     border-color: black;
+    margin-right: 50px;
 }
 
 .paper {
     border-color: black;
+    margin-right: 50px;
 }
 
 .scissor {
     border-color: black;
+}
+
+#btn:hover {
+    transform: scale(1.1);
+    border-color: cornflowerblue;
 }
